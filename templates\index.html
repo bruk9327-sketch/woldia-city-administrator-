@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="am" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header & Navigation -->
+  <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Logo from provided image -->
+        <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=100&h=100&fit=crop" alt="Woldia Logo" class="w-10 h-10 rounded-full border-2 border-amber-400 object-cover shadow">
+        <div>
+          <h1 class="text-lg font-bold tracking-wide">የወልድያ ከተማ አስተዳደር</h1>
+          <p class="text-xs text-emerald-200">ኦፊሴላዊ ድረ-ገጽ</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-6 font-medium text-sm">
+        <a href="#home" class="hover:text-amber-300 transition">HOME</a>
+        <a href="#services" class="hover:text-amber-300 transition">SERVICE</a>
+        <a href="#announcements" class="hover:text-amber-300 transition">ANNOUNCEMENT</a>
+        <a href="#about" class="hover:text-amber-300 transition">ABOUT US</a>
+        <a href="#feedback" class="hover:text-amber-300 transition">FEEDBACK</a>
+        <a href="#contact" class="hover:text-amber-300 transition">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Home) -->
+  <section id="home" class="relative bg-gradient-to-r from-emerald-900 via-emerald-700 to-teal-800 text-white py-24 px-6 text-center">
+    <div class="container mx-auto max-w-4xl relative z-10">
+      <span class="bg-amber-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">ታሪካዊና የንግድ ማዕከል</span>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">እንኳን ወደ ወልድያ ከተማ አስተዳደር ጽ/ቤት በደህና መጡ</h2>
+      <p class="text-lg text-emerald-100 mb-8 max-w-2xl mx-auto">ለህብረተሰባችን ቀልጣፋ፣ ግልጽ እና ዘመናዊ አገልግሎት ለመስጠት፣ የልማት ዕቅዶችን ከግብ ለማድረስ በቁርጠኝነት እንሰራለን።</p>
+      <div class="flex justify-center gap-4">
+        <a href="#announcements" class="bg-amber-500 text-gray-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-amber-400 transition">ዜናዎችን ይመልከቱ</a>
+        <a href="#services" class="bg-transparent border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white hover:text-emerald-900 transition">አገልግሎቶች</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 px-6 container mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-emerald-900 mb-2">ዋና ዋና አገልግሎቶች (Services)</h2>
+      <p class="text-gray-600">ለነዋሪዎች የሚሰጡ ቀልጣፋ እና ዘመናዊ መዋቅራዊ አገልግሎቶች</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-600 hover:shadow-xl transition">
+        <div class="text-emerald-600 text-3xl mb-4"><i class="fa-solid fa-seedling"></i></div>
+        <h3 class="text-xl font-bold mb-2 text-gray-800">ግብርናና መስኖ ልማት</h3>
+        <p class="text-gray-600 text-sm">የበጋ መስኖ ንቅናቄን ማጠናከር፣ የተፈጥሮ ሀብት ጥበቃ እና የአረንጓዴ አሻራ መርሃ ግብሮች ማከናወን።</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-amber-500 hover:shadow-xl transition">
+        <div class="text-amber-600 text-3xl mb-4"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h3 class="text-xl font-bold mb-2 text-gray-800">ገቢዎች አሰባሰብና ታክስ</h3>
+        <p class="text-gray-600 text-sm">የታክስ መሠረትን በማስፋት፣ ከሰው ንክኪ የጸዳ ዘመናዊ የገቢ አሰባሰብ ሥርዓትን መዘርጋት።</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-600 hover:shadow-xl transition">
+        <div class="text-teal-600 text-3xl mb-4"><i class="fa-solid fa-city"></i></div>
+        <h3 class="text-xl font-bold mb-2 text-gray-800">መሠረተ ልማትና አስተዳደር</h3>
+        <p class="text-gray-600 text-sm">ከተማዋን ለኑሮ ምቹ፣ ሰላማዊ እና የንግድ ማዕከልነቷን የጠበቀች ማድረግ።</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcements & News Section -->
+  <section id="announcements" class="bg-gray-100 py-16 px-6">
+    <div class="container mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-emerald-900 mb-2">ዜናዎች እና ማስታወቂያዎች (Announcements)</h2>
+        <p class="text-gray-600">ከከተማ አስተዳደራችን ወቅታዊ መረጃዎች</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- News 1: Irrigation -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-bold">መስኖ ልማት</span>
+              <span class="text-xs text-gray-400">ጥቅምት 17/2019 ዓ.ም</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">የ2019 ዓ.ም የመስኖ ልማት ዕቅድን ለማሳካት የተቋማት ቅንጅት ወሳኝ መሆኑ ተገለጸ</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              የወልድያ ከተማ ግብርና መምሪያ በ2019 ዓ.ም 1,182 ሄክታር መሬት በመስኖ ለማልማት ማቀዱን ገለጸ። የከተማ አስተዳደሩ ተቀዳሚ ምክትል ከንቲባ አቶ ታምራት ደምሴ የከተማዋን የተፈጥሮ ጸጋዎች በመጠቀም የመስኖ ንቅናቄውን በትኩረት ማከናወን እንደሚገባ አሳስበዋል።
+            </p>
+          </div>
+          <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs text-gray-500 font-semibold">
+            ወልድያ ኮሙኒኬሽን
+          </div>
+        </div>
+
+        <!-- News 2: Revenue -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between">
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-bold">ገቢዎች መምሪያ</span>
+              <span class="text-xs text-gray-400">ጥቅምት 14/2019 ዓ.ም</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">"ግብርን እንደ ሸክም ሳይሆን እንደ ነገ ኢንቨስትመንትና የዜግነት ኩራት ማየት ይገባናል።" - አቶ ታምራት ደምሴ</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              የወልድያ ከተማ አስተዳደር ገቢዎች መምሪያ የ2019 በጀት ዓመት የንቅናቄ መድረክ አካሂዷል። ከንቲባው ከተማዋን ለኑሮ ምቹ ለማድረግ የራሳችንን ገቢ በታማኝነት፣ በወቅቱና በትክክል መሰብሰብ ቁልፍ መሆኑን ገልጸዋል።
+            </p>
+          </div>
+          <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs text-gray-500 font-semibold">
+            የግ/ትም/ኮሙዩኒኬሽን ዋና የስራ
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-16 px-6 container mx-auto max-w-4xl text-center">
+    <h2 class="text-3xl font-bold text-emerald-900 mb-4">ስለ እኛ (About Us)</h2>
+    <p class="text-gray-700 leading-relaxed text-base mb-6">
+      ወልድያ ከተማ ታሪካዊ፣ የንግድና የትራንስፖርት መገናኛ፣ እንዲሁም የጽናት ምልክት የሆነች ታላቅ ከተማ ናት። የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት ለነዋሪዎች የሚሰጡ አገልግሎቶችን በቴክኖሎጂ በመደገፍ፣ መልካም አስተዳደርን በማስፈን እና ህብረተሰቡን ያካተተ የልማት እንቅስቃሴ በመምራት ላይ ይገኛል።
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100">
+        <h4 class="font-bold text-emerald-800 text-lg mb-1">ራዕይ</h4>
+        <p class="text-sm text-gray-600">ለኑሮ ምቹና ማራኪ የሆነች የንግድና የልማት ማዕከል ማየት።</p>
+      </div>
+      <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100">
+        <h4 class="font-bold text-emerald-800 text-lg mb-1">ተልዕኮ</h4>
+        <p class="text-sm text-gray-600">ቀልጣፋ፣ ግልጽ እና ጥራት ያለው ህዝባዊ አገልግሎት መስጠት።</p>
+      </div>
+      <div class="bg-emerald-50 p-6 rounded-lg border border-emerald-100">
+        <h4 class="font-bold text-emerald-800 text-lg mb-1">ዕሴቶች</h4>
+        <p class="text-sm text-gray-600">ቅንጅት፣ ቁርጠኝነት፣ ግልጽነት እና የዜግነት ኩራት።</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback" class="bg-emerald-900 text-white py-16 px-6">
+    <div class="container mx-auto max-w-2xl">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-2">අስተያየትና ጥቆማ መስጫ (Feedback)</h2>
+        <p class="text-emerald-200 text-sm">አገልግሎታችንን ለማሻሻል አስተያየትዎ ጠቃሚ ነው</p>
+      </div>
+
+      <form id="feedbackForm" class="bg-emerald-800 p-8 rounded-xl shadow-lg space-y-4 border border-emerald-700">
+        <div>
+          <label class="block text-sm font-semibold mb-1">ሙሉ ስም</label>
+          <input type="text" id="name" required class="w-full bg-emerald-900 border border-emerald-600 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">ኢሜይል አድራሻ</label>
+          <input type="email" id="email" required class="w-full bg-emerald-900 border border-emerald-600 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1">መልእክት / አስተያየት</label>
+          <textarea id="message" rows="4" required class="w-full bg-emerald-900 border border-emerald-600 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-amber-500 text-gray-900 font-bold py-3 rounded-lg hover:bg-amber-400 transition">አስተያየት ላክ</button>
+      </form>
+      <div id="responseMsg" class="mt-4 text-center font-semibold text-amber-300 hidden"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 container mx-auto max-w-4xl text-center">
+    <h2 class="text-3xl font-bold text-emerald-900 mb-6">ያግኙን (Contact Us)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700">
+      <div class="bg-white p-6 rounded-xl shadow border">
+        <i class="fa-solid fa-location-dot text-2xl text-emerald-700 mb-2"></i>
+        <h4 class="font-bold mb-1">አድራሻ</h4>
+        <p class="text-sm text-gray-600">ወልድያ ከተማ አስተዳደር ጽ/ቤት, አማራ, ኢትዮጵያ</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow border">
+        <i class="fa-solid fa-phone text-2xl text-emerald-700 mb-2"></i>
+        <h4 class="font-bold mb-1">ስልክ ቁጥር</h4>
+        <p class="text-sm text-gray-600">+251 33 551 0000</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow border">
+        <i class="fa-solid fa-envelope text-2xl text-emerald-700 mb-2"></i>
+        <h4 class="font-bold mb-1">ኢሜይል</h4>
+        <p class="text-sm text-gray-600">info@woldiacityadmin.gov.et</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm mt-auto border-t border-gray-800">
+    <p>&copy; 2026 የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት። መብቱ በሕግ የተጠበቀ ነው።</p>
+  </footer>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      try {
+        const res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+        const data = await res.json();
+        const msgDiv = document.getElementById('responseMsg');
+        msgDiv.innerText = data.message;
+        msgDiv.classList.remove('hidden');
+        document.getElementById('feedbackForm').reset();
+      } catch (err) {
+        alert('ይቅርታ፣ መልእክቱን መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።');
+      }
+    });
+  </script>
+</body>
+</html>
