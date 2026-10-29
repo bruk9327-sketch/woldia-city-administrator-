@@ -1,156 +1,464 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="am" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>የአስተዳደር ዳሽቦርድ - የወልድያ ከተማ</title>
+  <title>የአስተዳደር ዳሽቦርድ - የወልድያ ከተማ አስተዳደር</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }</style>
 </head>
 <body class="bg-slate-950 text-gray-100 flex min-h-screen">
 
-  <!-- Sidebar -->
-  <aside class="w-64 bg-slate-900 border-r border-slate-800 hidden md:flex flex-col justify-between p-6">
+  <!-- Sidebar (ጎንዮሽ ማውጫ) -->
+  <aside class="w-64 bg-slate-900 border-r border-slate-800 hidden md:flex flex-col justify-between p-6 sticky top-0 h-screen overflow-y-auto">
     <div class="space-y-6">
-      <div class="flex items-center space-x-3">
+      <!-- Logo & Office Title -->
+      <div class="flex items-center space-x-3 pb-4 border-b border-slate-800">
         <div class="w-10 h-10 rounded-full bg-teal-950 border border-amber-400 flex items-center justify-center text-amber-400 font-bold">W</div>
         <div>
-          <h1 class="text-sm font-bold text-white">Woldia Admin</h1>
-          <p class="text-[10px] text-emerald-400">Control Panel</p>
+          <h1 class="text-xs font-bold text-white">የአስተዳደር ጽሕፈት ቤት</h1>
+          <p class="text-[10px] text-emerald-400">Administrative Office</p>
         </div>
       </div>
-      <nav class="space-y-2 text-sm font-semibold">
-        <a href="#" class="flex items-center gap-3 px-4 py-2.5 bg-amber-500 text-slate-950 rounded-xl font-bold"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-        <a href="#cqms-table" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-users-line"></i> CQMS Queues</a>
-        <a href="#feedback-table" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-comments"></i> Feedbacks & Signatures</a>
-        <a href="/admin/logout" class="flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-red-950/50 rounded-xl transition mt-10"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+      <!-- Navigation Links -->
+      <nav class="space-y-1 text-xs font-semibold">
+        <a href="#overview" class="flex items-center gap-3 px-4 py-2.5 bg-amber-500 text-slate-950 rounded-xl font-bold shadow"><i class="fa-solid fa-chart-pie"></i> 1. Dashboard Overview</a>
+        <a href="#citizens" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-users"></i> 2. Citizen Management</a>
+        <a href="#queues" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-ticket"></i> 3. Queue Management</a>
+        <a href="#services-dept" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-building-shield"></i> 4. Service Departments</a>
+        <a href="#cases" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-file-invoice"></i> 5. Case Management</a>
+        <a href="#employees" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-user-tie"></i> 6. Employee & Roles</a>
+        <a href="#complaints" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-comments"></i> 7. Complaints & Feedback</a>
+        <a href="#reports" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-chart-line"></i> 8. Reports & Analytics</a>
+        <a href="#security" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-shield-halved text-cyan-400"></i> 9. Security & Audit</a>
+        <a href="#settings" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-gears text-purple-400"></i> 10. Settings & Notifications</a>
+        <a href="/admin/logout" class="flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-red-950/50 rounded-xl transition mt-4"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
       </nav>
     </div>
-    <div class="text-[11px] text-gray-500 text-center border-t border-slate-800 pt-4">
-      &copy; 2026 ወልድያ ከተማ አስተዳደር
+    
+    <!-- Sidebar Footer Banner -->
+    <div class="bg-gradient-to-t from-emerald-950 to-slate-900 p-3 rounded-xl border border-slate-800 text-center mt-6">
+      <p class="text-[11px] font-bold text-amber-400">ለሰዎች ማገልገል ለአገር መቆም ነው!</p>
+      <span class="text-[9px] text-gray-400 block mt-1">Ethiopian Public Service</span>
     </div>
   </aside>
 
   <!-- Main Content Area -->
   <main class="flex-1 flex flex-col min-w-0">
     <!-- Top Header -->
-    <header class="bg-slate-900/80 backdrop-blur border-b border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-30">
-      <h2 class="text-lg font-bold text-white">System Overview & Monitoring</h2>
-      <div class="flex items-center gap-3">
-        <span class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full font-semibold">Online Admin</span>
+    <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-30">
+      <div class="flex items-center gap-4 w-1/2">
+        <div class="relative w-full max-w-md">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"><i class="fa-solid fa-search"></i></span>
+          <input type="text" placeholder="Search customer, queue number, service..." class="w-full bg-slate-950 border border-slate-700 rounded-full pl-10 pr-4 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-right hidden sm:block">
+          <h4 class="text-xs font-bold text-white">Admin (System Administrator)</h4>
+          <span class="text-[10px] text-emerald-400">Online</span>
+        </div>
+        <a href="/admin/logout" class="bg-red-950 text-red-400 border border-red-800 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-red-900 transition">Logout</a>
       </div>
     </header>
 
-    <!-- Dashboard Content -->
-    <div class="p-6 md:p-8 space-y-8 overflow-y-auto">
+    <!-- Dashboard Body -->
+    <div class="p-6 md:p-8 space-y-10 overflow-y-auto">
       
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-xs text-gray-400 font-semibold">Total Requests</span>
-            <i class="fa-solid fa-file-invoice text-emerald-400 text-xl"></i>
-          </div>
-          <h3 class="text-3xl font-black text-white">1,248</h3>
-          <p class="text-[11px] text-emerald-400 mt-1">+12% ከትናንት በሀገር አቀፍ</p>
-        </div>
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-xs text-gray-400 font-semibold">Active CQMS Queues</span>
-            <i class="fa-solid fa-users text-amber-400 text-xl"></i>
-          </div>
-          <h3 class="text-3xl font-black text-white">42</h3>
-          <p class="text-[11px] text-amber-400 mt-1">በአሁን ሰዓት በመጠበቅ ላይ</p>
-        </div>
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-xs text-gray-400 font-semibold">Signed Feedbacks</span>
-            <i class="fa-solid fa-signature text-cyan-400 text-xl"></i>
-          </div>
-          <h3 class="text-3xl font-black text-white">310</h3>
-          <p class="text-[11px] text-cyan-400 mt-1">በዲጂታል ፊርማ የተረጋገጠ</p>
-        </div>
-        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-xs text-gray-400 font-semibold">System Status</span>
-            <i class="fa-solid fa-server text-purple-400 text-xl"></i>
-          </div>
-          <h3 class="text-3xl font-black text-emerald-400">Stable</h3>
-          <p class="text-[11px] text-gray-400 mt-1">Render & Render DB OK</p>
-        </div>
-      </div>
-
-      <!-- CQMS Queue Management Table -->
-      <div id="cqms-table" class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-6">
-        <div class="flex justify-between items-center mb-6">
+      <!-- 1. Dashboard Overview — አጠቃላይ መረጃ -->
+      <section id="overview" class="space-y-6">
+        <div class="flex justify-between items-center">
           <div>
-            <h3 class="text-lg font-bold text-white">የደንበኞች ተራ አሰላለፍ (CQMS Records)</h3>
-            <p class="text-xs text-gray-400">በዜጎች የተመዘገቡ ንቁ የሰርቪስ ተራዎች</p>
+            <h2 class="text-xl font-black text-white">Dashboard Overview</h2>
+            <p class="text-xs text-gray-400">Welcome back, Admin! Here's what's happening today.</p>
           </div>
-          <button class="bg-slate-800 border border-slate-700 text-xs text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">Export CSV</button>
+          <span class="text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl text-gray-300 font-semibold"><i class="fa-regular fa-calendar mr-1 text-amber-400"></i> April 29, 2026</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow">
+            <div class="text-blue-400 text-xl mb-2"><i class="fa-solid fa-users"></i></div>
+            <span class="text-[11px] text-gray-400 font-semibold">Total Customers</span>
+            <h3 class="text-2xl font-black text-white mt-1">1,248</h3>
+            <p class="text-[10px] text-emerald-400 mt-1">&uarr; 12% vs. yesterday</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow">
+            <div class="text-emerald-400 text-xl mb-2"><i class="fa-solid fa-ticket"></i></div>
+            <span class="text-[11px] text-gray-400 font-semibold">Today's Queues</span>
+            <h3 class="text-2xl font-black text-white mt-1">842</h3>
+            <p class="text-[10px] text-emerald-400 mt-1">&uarr; 15% vs. yesterday</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow">
+            <div class="text-amber-400 text-xl mb-2"><i class="fa-solid fa-check-to-slot"></i></div>
+            <span class="text-[11px] text-gray-400 font-semibold">Served Customers</span>
+            <h3 class="text-2xl font-black text-white mt-1">763</h3>
+            <p class="text-[10px] text-emerald-400 mt-1">&uarr; 18% vs. yesterday</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow">
+            <div class="text-purple-400 text-xl mb-2"><i class="fa-solid fa-clock"></i></div>
+            <span class="text-[11px] text-gray-400 font-semibold">Waiting Customers</span>
+            <h3 class="text-2xl font-black text-white mt-1">79</h3>
+            <p class="text-[10px] text-amber-400 mt-1">Avg. Wait: 12 mins</p>
+          </div>
+          <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow">
+            <div class="text-cyan-400 text-xl mb-2"><i class="fa-solid fa-desktop"></i></div>
+            <span class="text-[11px] text-gray-400 font-semibold">Service Desks</span>
+            <h3 class="text-2xl font-black text-white mt-1">6 Active</h3>
+            <p class="text-[10px] text-cyan-400 mt-1">All operational</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Customer / Citizen Management — የባለጉዳዮች አስተዳደር -->
+      <section id="citizens" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-users text-blue-400 mr-2"></i> 2. Citizen / Customer Management</h3>
+            <p class="text-xs text-gray-400">የዜጎች ምዝገባ መረጃ ማስተካከያ እና የሰነድ ማያያዣ መዝገብ</p>
+          </div>
+          <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition"><i class="fa-solid fa-user-plus mr-1"></i> Add New Citizen</button>
         </div>
         <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse text-xs">
+          <table class="w-full text-left text-xs text-gray-300">
             <thead>
-              <tr class="border-b border-slate-800 text-gray-400">
-                <th class="py-3 px-4">Order #</th>
-                <th class="py-3 px-4">FullName</th>
+              <tr class="border-b border-slate-800 text-gray-500">
+                <th class="py-3 px-4">Citizen ID</th>
+                <th class="py-3 px-4">Full Name</th>
                 <th class="py-3 px-4">Phone</th>
                 <th class="py-3 px-4">Qebele</th>
-                <th class="py-3 px-4">Service</th>
-                <th class="py-3 px-4">Date & Time</th>
-                <th class="py-3 px-4 text-center">Status</th>
+                <th class="py-3 px-4">Attached Documents</th>
+                <th class="py-3 px-4 text-center">Actions</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800 text-gray-300">
+            <tbody class="divide-y divide-slate-800">
               <tr>
-                <td class="py-3 px-4 font-bold text-amber-400">WLD-Q-1042</td>
+                <td class="py-3 px-4 font-bold text-amber-400">WLD-C-8921</td>
                 <td class="py-3 px-4">አበበ ከበደ አሰፋ</td>
                 <td class="py-3 px-4">+251911234567</td>
                 <td class="py-3 px-4">ቀበሌ 01</td>
-                <td class="py-3 px-4">Citizen Portal</td>
-                <td class="py-3 px-4">10/29/2026, 04:30 PM</td>
-                <td class="py-3 px-4 text-center"><span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-bold">Active</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Feedback & Digital Signatures Table -->
-      <div id="feedback-table" class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-6">
-        <div class="flex justify-between items-center mb-6">
-          <div>
-            <h3 class="text-lg font-bold text-white">የአስተያየቶችና የዲጂታል ፊርማዎች መዝገብ (Feedbacks)</h3>
-            <p class="text-xs text-gray-400">ከዜጎች የተሰጡ አስተያየቶች ከቀን/ሰዓት እና ፊርማ ጋር</p>
-          </div>
-        </div>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse text-xs">
-            <thead>
-              <tr class="border-b border-slate-800 text-gray-400">
-                <th class="py-3 px-4">Full Name</th>
-                <th class="py-3 px-4">Email</th>
-                <th class="py-3 px-4">Message</th>
-                <th class="py-3 px-4">Date & Time</th>
-                <th class="py-3 px-4 text-center">Digital Signature</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-800 text-gray-300">
-              <tr>
-                <td class="py-3 px-4 font-bold text-white">ዮሐንስ ደምሴ</td>
-                <td class="py-3 px-4">yohanes@gmail.com</td>
-                <td class="py-3 px-4">አገልግሎቱ በጣም ፈጣንና አጥጋቢ ነው። በርቱልን!</td>
-                <td class="py-3 px-4">2026-10-29T16:20:00Z</td>
+                <td class="py-3 px-4"><span class="text-cyan-400 underline cursor-pointer">ID_Card.pdf, Letter.pdf</span></td>
                 <td class="py-3 px-4 text-center">
-                  <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 px-2 py-1 rounded text-[10px]">Verified Signature</span>
+                  <button class="text-emerald-400 hover:underline mr-2">Edit</button>
+                  <button class="text-gray-400 hover:underline">History</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
+
+      <!-- 3. Queue Management — የወረፋ አስተዳደር -->
+      <section id="queues" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-ticket text-emerald-400 mr-2"></i> 3. Queue Management (Live Queue & Audio Call)</h3>
+            <p class="text-xs text-gray-400">የወረፋ ቁጥር መፍጠር፣ ቀጣይ ባለጉዳይ መጥራትና ቅድሚያ መስጠት</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs px-4 py-2 rounded-lg"><i class="fa-solid fa-bullhorn mr-1"></i> Call Next</button>
+            <button class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2 rounded-lg"><i class="fa-solid fa-plus mr-1"></i> Generate Queue</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-gray-300">
+            <thead>
+              <tr class="border-b border-slate-800 text-gray-500">
+                <th class="py-3 px-4">No.</th>
+                <th class="py-3 px-4">Queue No.</th>
+                <th class="py-3 px-4">Service</th>
+                <th class="py-3 px-4">Assigned Desk</th>
+                <th class="py-3 px-4 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr>
+                <td class="py-3 px-4">1</td>
+                <td class="py-3 px-4 font-bold text-amber-400">A042</td>
+                <td class="py-3 px-4">ID & Civil Registration</td>
+                <td class="py-3 px-4">Desk 1</td>
+                <td class="py-3 px-4 text-center"><span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px] font-bold">Being Served</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4">2</td>
+                <td class="py-3 px-4 font-bold text-amber-400">B017</td>
+                <td class="py-3 px-4">Business License</td>
+                <td class="py-3 px-4">Desk 2</td>
+                <td class="py-3 px-4 text-center"><span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-0.5 rounded text-[10px] font-bold">Being Served</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4">3</td>
+                <td class="py-3 px-4 font-bold text-amber-400">C028</td>
+                <td class="py-3 px-4">Tax Service</td>
+                <td class="py-3 px-4">Desk 3</td>
+                <td class="py-3 px-4 text-center"><span class="bg-amber-950 text-amber-400 border border-amber-800 px-2.5 py-0.5 rounded text-[10px] font-bold">Waiting</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. Service Departments — የአገልግሎት ክፍሎች -->
+      <section id="services-dept" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-building-shield text-cyan-400 mr-2"></i> 4. Service Departments & Catalogs</h3>
+            <p class="text-xs text-gray-400">የአገልግሎት ክፍሎች ዝርዝር እና የዴስክ ማስተላለፊያ መዋቅር</p>
+          </div>
+          <button class="bg-slate-800 border border-slate-700 text-xs text-white px-4 py-2 rounded-lg hover:bg-slate-700">Add Department</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">ID & Civil Registration</h4>
+            <p class="text-gray-400">Desks: Desk 1, Desk 2</p>
+            <span class="inline-block bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Active (28% load)</span>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">Business License & Trade</h4>
+            <p class="text-gray-400">Desks: Desk 3</p>
+            <span class="inline-block bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Active (18% load)</span>
+          </div>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <h4 class="font-bold text-amber-400 text-sm">Tax & Revenue Service</h4>
+            <p class="text-gray-400">Desks: Desk 4, Desk 5</p>
+            <span class="inline-block bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Active (16% load)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Case & Request Management — የጉዳይና ጥያቄ አስተዳደር -->
+      <section id="cases" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-file-invoice text-purple-400 mr-2"></i> 5. Case & Request Management</h3>
+            <p class="text-xs text-gray-400">የጥያቄ ምዝገባ፣ ለሰራተኛ መመደብ እና የሁኔታ መከታተያ</p>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold bg-emerald-950 px-3 py-1 rounded-full border border-emerald-800">1,248 Total Cases</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-gray-300">
+            <thead>
+              <tr class="border-b border-slate-800 text-gray-500">
+                <th class="py-3 px-4">Case ID</th>
+                <th class="py-3 px-4">Citizen Name</th>
+                <th class="py-3 px-4">Request Type</th>
+                <th class="py-3 px-4">Assigned Officer</th>
+                <th class="py-3 px-4">SLA / Due Time</th>
+                <th class="py-3 px-4 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr>
+                <td class="py-3 px-4 font-bold text-amber-400">CS-2026-901</td>
+                <td class="py-3 px-4">መዓዛ ታደሰ ሞላ</td>
+                <td class="py-3 px-4">Business Permit Renewal</td>
+                <td class="py-3 px-4">አለሙ ታደሰ (Officer)</td>
+                <td class="py-3 px-4">2 Hours Left</td>
+                <td class="py-3 px-4 text-center"><span class="bg-amber-950 text-amber-400 border border-amber-800 px-2.5 py-0.5 rounded text-[10px] font-bold">In Progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. Employee & Role Management — የሰራተኞችና ሚና አስተዳደር -->
+      <section id="employees" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-user-tie text-amber-400 mr-2"></i> 6. Employee & Role Management (RBAC)</h3>
+            <p class="text-xs text-gray-400">የሰራተኛ መለያ፣ የዴስክ ምደባ እና የፈቃድ ደረጃዎች (Admin, Supervisor, Service Officer)</p>
+          </div>
+          <button class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition"><i class="fa-solid fa-user-plus mr-1"></i> Add Staff</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-gray-300">
+            <thead>
+              <tr class="border-b border-slate-800 text-gray-500">
+                <th class="py-3 px-4">Staff Name</th>
+                <th class="py-3 px-4">Email</th>
+                <th class="py-3 px-4">Department</th>
+                <th class="py-3 px-4">Assigned Desk</th>
+                <th class="py-3 px-4">Role / Permission</th>
+                <th class="py-3 px-4 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">አለሙ ታደሰ</td>
+                <td class="py-3 px-4">alemu@woldiacity.gov.et</td>
+                <td class="py-3 px-4">Business License</td>
+                <td class="py-3 px-4">Desk 3</td>
+                <td class="py-3 px-4"><span class="bg-purple-950 text-purple-400 px-2 py-0.5 rounded text-[10px] font-bold">Service Officer</span></td>
+                <td class="py-3 px-4 text-center"><span class="text-emerald-400 font-bold">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 7. Complaints & Feedback — ቅሬታና አስተያየት -->
+      <section id="complaints" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-comments text-cyan-400 mr-2"></i> 7. Complaints & Citizen Feedback</h3>
+            <p class="text-xs text-gray-400">ቅሬታዎች ምዝገባ፣ ምላሽ መስጠት እና የዜጎች እርካታ መለኪያ (CSAT)</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-white">ዮሐንስ ደምሴ (yohanes@gmail.com)</span>
+              <span class="bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Verified Signature</span>
+            </div>
+            <p class="text-gray-300">"አገልግሎቱ በጣም ፈጣንና አጥጋቢ ነው። በርቱልን!"</p>
+            <span class="text-[10px] text-gray-500 block">Date: 10/29/2026 | Satisfaction: 5/5 ⭐</span>
+          </div>
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="font-bold text-white">ሰላማዊት አበበ (selam@gmail.com)</span>
+              <span class="bg-amber-950 text-amber-400 px-2 py-0.5 rounded text-[10px]">Pending Reply</span>
+            </div>
+            <p class="text-gray-300">"በቀበሌ 03 የንግድ ፈቃድ እድሳት ላይ መዘግየት አጋጥሞኛል ይተካከልኝ።"</p>
+            <span class="text-[10px] text-gray-500 block">Date: 10/29/2026 | Complaint #CMP-442</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Reports & Analytics — ሪፖርትና ትንተና -->
+      <section id="reports" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold text-white"><i class="fa-solid fa-chart-line text-emerald-400 mr-2"></i> 8. Reports & Analytics</h3>
+            <p class="text-xs text-gray-400">ዕለታዊ፣ ወርሃዊና ዓማዊ የአፈጻጸም ሪፖርቶች በ PDF / Excel ማውጫ</p>
+          </div>
+          <div class="flex gap-2">
+            <button class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-lg"><i class="fa-solid fa-file-excel mr-1"></i> Export Excel</button>
+            <button class="bg-red-700 hover:bg-red-600 text-white text-xs font-bold px-3 py-2 rounded-lg"><i class="fa-solid fa-file-pdf mr-1"></i> Export PDF</button>
+          </div>
+        </div>
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 text-center text-gray-400 text-xs">
+          [ 📊 Interactive Charts & Analytics Graph: Total Queues, Service Distribution Rates, and Employee Performance Metrics are fully loaded ]
+        </div>
+      </section>
+
+      <!-- 9. Security & Audit Logs — ደህንነትና የእንቅስቃሴ መዝገብ -->
+      <section id="security" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+          <div>
+            <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-shield-halved text-cyan-400"></i> 9. Security & Audit Logs (ደህንነትና የእንቅስቃሴ መዝገብ)</h3>
+            <p class="text-xs text-gray-400">የተጠቃሚ መግቢያ ታሪክ፣ ማን ምን እንደቀየረ መመዝገብ፣ Backup እና Session Management</p>
+          </div>
+          <button class="bg-cyan-600 hover:bg-cyan-500 text-slate-950 text-xs font-bold px-4 py-2 rounded-lg transition shadow"><i class="fa-solid fa-database mr-1"></i> Download DB Backup</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 bg-slate-950 border border-slate-800 p-4 rounded-xl">
+            <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-3"><i class="fa-solid fa-clock-rotate-left mr-1"></i> የተጠቃሚ መግቢያና የእንቅስቃሴ ታሪክ (Login & Audit History)</h4>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-gray-300">
+                <thead>
+                  <tr class="text-gray-500 border-b border-slate-800">
+                    <th class="pb-2">User / Role</th>
+                    <th class="pb-2">Action / Event</th>
+                    <th class="pb-2">IP Address</th>
+                    <th class="pb-2">Time</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-900">
+                  <tr>
+                    <td class="py-2 font-bold text-white">admin@woldiacity.gov.et</td>
+                    <td class="py-2 text-cyan-400">Updated System Settings</td>
+                    <td class="py-2 text-gray-400">196.189.24.12</td>
+                    <td class="py-2 text-gray-400">10/29/2026, 05:10 PM</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 font-bold text-white">alemu@woldiacity.gov.et</td>
+                    <td class="py-2 text-emerald-400">Issued Queue #A042</td>
+                    <td class="py-2 text-gray-400">196.189.10.5</td>
+                    <td class="py-2 text-gray-400">10/29/2026, 02:15 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-4 text-xs">
+            <h4 class="font-bold text-cyan-400 uppercase tracking-wider"><i class="fa-solid fa-lock mr-1"></i> Session & Data Protection</h4>
+            <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-800">
+              <div>
+                <span class="font-bold text-white block">Automatic Backup</span>
+                <span class="text-[10px] text-gray-400">Daily database snapshot</span>
+              </div>
+              <span class="bg-emerald-950 text-emerald-400 px-2 py-1 rounded text-[10px] font-bold">Active</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900 p-3 rounded-lg border border-slate-800">
+              <div>
+                <span class="font-bold text-white block">Session Timeout</span>
+                <span class="text-[10px] text-gray-400">Auto logout after 30 mins</span>
+              </div>
+              <span class="text-amber-400 font-bold text-xs">30m</span>
+            </div>
+            <button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 rounded-lg transition border border-slate-700">
+              Clear All Active Sessions
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. System Settings & Notifications — ሴቲንግና ማሳወቂያ -->
+      <section id="settings" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div class="border-b border-slate-800 pb-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="fa-solid fa-gears text-purple-400"></i> 10. System Settings & Notifications (ሴቲንግና ማሳወቂያ)</h3>
+          <p class="text-xs text-gray-400">የቢሮ መረጃ፣ የስራ ሰዓት፣ የወረፋ ቅጥ፣ SMS ውቅር እና የቋንቋ ምርጫዎች</p>
+        </div>
+
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl space-y-4">
+            <h4 class="font-bold text-amber-400 uppercase tracking-wider"><i class="fa-solid fa-building-columns mr-1"></i> የቢሮ መረጃና የስራ ሰዓት (Office & Hours)</h4>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">የቢሮ ስም (Office Name)</label>
+              <input type="text" value="የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">ኦፊሴላዊ የስራ ሰዓት (Working Hours)</label>
+              <input type="text" value="ሰኞ - ዓርብ፡ 2:00 - 11:00 ሰዓት" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">የድጋፍ ስልክ (Support Phone)</label>
+              <input type="text" value="+251 33 551 0000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 p-5 rounded-xl space-y-4">
+            <h4 class="font-bold text-purple-400 uppercase tracking-wider"><i class="fa-solid fa-ticket mr-1"></i> የወረፋ ቅጥና ማሳወቂያ ውቅር (Queue & SMS)</h4>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">የተራ ቁጥር ቅጥያ (Queue Prefix)</label>
+              <input type="text" value="WLD-Q-" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">የ SMS ጌትዌይ ሁኔታ (SMS Gateway)</label>
+              <select class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+                <option selected>Enabled (ንቁ - Ethio Telecom API)</option>
+                <option>Disabled (ተሰናክሏል)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1">ነባሪ ቋንቋ እና ቀን (Language & Date)</label>
+              <select class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-amber-400">
+                <option selected>አማርኛ / Ethiopian Calendar</option>
+                <option>English / Gregorian</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 pt-2">
+            <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-6 py-3 rounded-lg transition shadow-lg w-full md:w-auto">
+              <i class="fa-solid fa-floppy-disk mr-1"></i> Save All Changes (ለውጦችን በሙሉ መዝግብ)
+            </button>
+          </div>
+        </form>
+      </section>
 
     </div>
   </main>
