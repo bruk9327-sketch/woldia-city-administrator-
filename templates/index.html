@@ -39,7 +39,7 @@
           <text x="50" y="87" font-size="5" fill="#ffffff" text-anchor="middle">WELDEYA CITY ADMIN</text>
         </svg>
         <div>
-          <h1 class="text-lg md:text-xl font-bold tracking-wide text-white">የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት</h1>
+          <h1 class="text-lg md:text-xl font-bold tracking-wide text-white">ወልድያ ከተማ</h1>
           <p class="text-xs text-emerald-400 font-semibold">Woldia City Administration</p>
         </div>
       </div>
@@ -53,7 +53,7 @@
           <a href="#services" class="hover:text-amber-400 transition flex items-center gap-1">
             Service <i class="fa-solid fa-chevron-down text-xs ml-1"></i>
           </a>
-          <div class="dropdown-menu hidden absolute left-0 mt-2 w-64 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2 z-50">
+          <div class="dropdown-menu hidden absolute left-0 mt-2 w-72 bg-slate-950 border border-slate-800 rounded-xl shadow-2xl py-2 z-50">
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-users-viewfinder text-emerald-400 mr-2"></i>Citizen Portal</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-list-check text-amber-400 mr-2"></i>Service Catalog</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-file-pen text-cyan-400 mr-2"></i>Application Management</a>
@@ -61,7 +61,9 @@
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-receipt text-emerald-400 mr-2"></i>Payment & Receipt</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-bell text-amber-400 mr-2"></i>Tracking & Notification</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-triangle-exclamation text-cyan-400 mr-2"></i>Complaint Management</a>
-            <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400"><i class="fa-solid fa-chart-line text-purple-400 mr-2"></i>Reports & Analytics</a>
+            <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-chart-line text-purple-400 mr-2"></i>Reports & Analytics</a>
+            <!-- CQMS Sub-menu Item -->
+            <a href="#cqms-section" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 text-amber-300 font-bold"><i class="fa-solid fa-ticket mr-2"></i>Customer Queue (CQMS)</a>
           </div>
         </div>
 
@@ -90,6 +92,7 @@
         <a href="#services" class="block text-xs hover:text-amber-400">Tracking & Notification</a>
         <a href="#services" class="block text-xs hover:text-amber-400">Complaint Management</a>
         <a href="#services" class="block text-xs hover:text-amber-400">Reports & Analytics</a>
+        <a href="#cqms-section" class="block text-xs text-amber-300 font-bold hover:text-amber-400">Customer Queue (CQMS)</a>
       </div>
       <a href="#announcements" class="block hover:text-amber-400">News & Announcements</a>
       <a href="#feedback" class="block hover:text-amber-400">Feedback</a>
@@ -199,8 +202,79 @@
     </div>
   </section>
 
+  <!-- Customer Queue Management System (CQMS) Registration Section -->
+  <section id="cqms-section" class="py-20 px-6 bg-slate-950">
+    <div class="container mx-auto max-w-3xl">
+      <div class="text-center mb-12">
+        <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">CQMS PORTAL</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Customer Queue Management System</h2>
+        <p class="text-gray-400 text-sm">ለተራ አሰላለፍ እና ፈጣን አገልግሎት ማግኛ የደንበኛ ምዝገባ ቅጽ</p>
+        <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <form id="cqmsForm" class="bg-slate-900 p-8 rounded-2xl shadow-2xl space-y-6 border border-slate-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">First Name (ስም)</label>
+            <input type="text" id="firstName" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="የስምዎ የመጀመሪያ ፊደል">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Middle Name (የአባት ስም)</label>
+            <input type="text" id="middleName" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="የአባት ስም">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Last Name (የአያት ስም)</label>
+            <input type="text" id="lastName" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="የአያት ስም">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Phone Number (ስልክ ቁጥር)</label>
+            <input type="tel" id="phoneNumber" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="+251...">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Qebele (ቀበሌ)</label>
+            <input type="text" id="qebele" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="ለምሳሌ፡ ቀበሌ 01">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Service (የሚፈልጉት አገልግሎት)</label>
+            <select id="serviceType" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+              <option value="">አገልግሎት ይምረጡ</option>
+              <option value="Citizen Portal">Citizen Portal</option>
+              <option value="Service Catalog">Service Catalog</option>
+              <option value="Application Management">Application Management</option>
+              <option value="Workflow & Approval">Workflow & Approval</option>
+              <option value="Payment & Receipt">Payment & Receipt</option>
+              <option value="Tracking & Notification">Tracking & Notification</option>
+              <option value="Complaint Management">Complaint Management</option>
+              <option value="Reports & Analytics">Reports & Analytics</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Order Number (የተራ ቁጥር)</label>
+            <input type="text" id="orderNumber" readonly class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-amber-400 font-bold focus:outline-none cursor-not-allowed" value="WLD-2026-001">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold mb-2 text-gray-300">Date and Time (ቀን እና ሰዓት)</label>
+          <input type="text" id="dateTime" readonly class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-gray-300 focus:outline-none cursor-not-allowed">
+        </div>
+
+        <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
+          Submit (ምዝገባ ላክ)
+        </button>
+      </form>
+      <div id="cqmsResponseMsg" class="mt-4 text-center font-bold text-amber-400 hidden"></div>
+    </div>
+  </section>
+
   <!-- News & Announcements Section -->
-  <section id="announcements" class="py-20 px-6 bg-slate-950">
+  <section id="announcements" class="py-20 px-6 bg-slate-900">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-16">
         <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">UPDATES</span>
@@ -210,7 +284,7 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/50 transition">
           <div>
             <div class="flex justify-between items-center mb-4">
               <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-bold px-3 py-1 rounded-full">የከንቲባ ኮሚቴ ውሳኔ</span>
@@ -227,7 +301,7 @@
           </div>
         </div>
 
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/50 transition">
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover:border-amber-500/50 transition">
           <div>
             <div class="flex justify-between items-center mb-4">
               <span class="bg-amber-950 text-amber-400 border border-amber-800 text-xs font-bold px-3 py-1 rounded-full">መስኖ ልማት</span>
@@ -248,7 +322,7 @@
   </section>
 
   <!-- Feedback Section -->
-  <section id="feedback" class="py-20 px-6 bg-slate-900">
+  <section id="feedback" class="py-20 px-6 bg-slate-950">
     <div class="container mx-auto max-w-2xl">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-extrabold text-white mb-2">FEEDBACK</h2>
@@ -256,18 +330,18 @@
         <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
       </div>
 
-      <form id="feedbackForm" class="bg-slate-950 p-8 rounded-2xl shadow-2xl space-y-5 border border-slate-800">
+      <form id="feedbackForm" class="bg-slate-900 p-8 rounded-2xl shadow-2xl space-y-5 border border-slate-800">
         <div>
           <label class="block text-sm font-semibold mb-2 text-gray-300">ሙሉ ስም</label>
-          <input type="text" id="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+          <input type="text" id="name" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
         </div>
         <div>
           <label class="block text-sm font-semibold mb-2 text-gray-300">ኢሜይል አድራሻ</label>
-          <input type="email" id="email" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
+          <input type="email" id="email" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
         </div>
         <div>
           <label class="block text-sm font-semibold mb-2 text-gray-300">መልእክት / አስተያየት</label>
-          <textarea id="message" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400"></textarea>
+          <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400"></textarea>
         </div>
         <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
           አስተያየት ላክ
@@ -278,7 +352,7 @@
   </section>
 
   <!-- About Us Section -->
-  <section id="about" class="py-20 px-6 bg-slate-950 text-center">
+  <section id="about" class="py-20 px-6 bg-slate-900 text-center">
     <div class="container mx-auto max-w-4xl">
       <h2 class="text-3xl font-extrabold text-white mb-2">ABOUT US</h2>
       <div class="w-16 h-1 bg-amber-400 mx-auto mb-6 rounded-full"></div>
@@ -286,15 +360,15 @@
         ወልድያ ከተማ ታሪካዊ፣ የንግድና የትራንስፖርት መገናኛ፣ እንዲሁም የጽናት ምልክት የሆነች ታላቅ ከተማ ናት። የወልድያ ከተማ አስተዳደር ጽሕፈት ቤት ለነዋሪዎች የሚሰጡ አገልግሎቶችን በቴክኖሎጂ በመደገፍ፣ መልካም አስተዳደርን በማስፈን ላይ ይገኛል።
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
           <h4 class="font-bold text-amber-400 text-lg mb-2">ራዕይ</h4>
           <p class="text-sm text-gray-400">ለኑሮ ምቹ፣ ማራኪና ጸጥታዋ የተጠበቀ የንግድና የልማት ማዕከል ማየት።</p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
           <h4 class="font-bold text-amber-400 text-lg mb-2">ተልዕኮ</h4>
           <p class="text-sm text-gray-400">ቀልጣፋ፣ ግልጽ እና ጥራት ያለው ህዝባዊ አገልግሎት በቁርጠኝነት መስጠት።</p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
           <h4 class="font-bold text-amber-400 text-lg mb-2">ዕሴቶች</h4>
           <p class="text-sm text-gray-400">ቅንጅት፣ ቁርጠኝነት፣ ግልጽነት፣ ተጠያቂነት እና የዜግነት ኩራት።</p>
         </div>
@@ -303,22 +377,22 @@
   </section>
 
   <!-- Contact Us Section -->
-  <section id="contact" class="py-20 px-6 bg-slate-900 text-center">
+  <section id="contact" class="py-20 px-6 bg-slate-950 text-center">
     <div class="container mx-auto max-w-5xl">
       <h2 class="text-3xl font-extrabold text-white mb-2">CONTACT US</h2>
       <div class="w-16 h-1 bg-amber-400 mx-auto mb-10 rounded-full"></div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
-        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
           <i class="fa-solid fa-location-dot text-3xl text-emerald-400 mb-3"></i>
           <h4 class="font-bold text-lg mb-1 text-white">አድራሻ</h4>
           <p class="text-sm text-gray-400">ወልድያ ከተማ አስተዳደር ጽ/ቤት, አማራ, ኢትዮጵያ</p>
         </div>
-        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
           <i class="fa-solid fa-phone text-3xl text-emerald-400 mb-3"></i>
           <h4 class="font-bold text-lg mb-1 text-white">ስልክ ቁጥር</h4>
           <p class="text-sm text-gray-400">+251 33 551 0000</p>
         </div>
-        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800">
+        <div class="bg-slate-900 p-6 rounded-xl border border-slate-800">
           <i class="fa-solid fa-envelope text-3xl text-emerald-400 mb-3"></i>
           <h4 class="font-bold text-lg mb-1 text-white">ኢሜይል</h4>
           <p class="text-sm text-gray-400">info@woldiacityadmin.gov.et</p>
@@ -361,6 +435,41 @@
     // Mobile menu toggle
     document.getElementById('menuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Auto-generate Order Number and Current Date/Time on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      // Generate random order number or counter
+      const randomOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('orderNumber').value = randomOrder;
+
+      // Set current date and time
+      const now = new Date();
+      const formattedDateTime = now.toLocaleString('en-US', { 
+        year: 'numeric', month: '2-digit', day: '2-digit', 
+        hour: '2-digit', minute: '2-digit', second: '2-digit' 
+      });
+      document.getElementById('dateTime').value = formattedDateTime;
+    });
+
+    // CQMS Form Submission
+    document.getElementById('cqmsForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fName = document.getElementById('firstName').value;
+      const orderNum = document.getElementById('orderNumber').value;
+      
+      const msgDiv = document.getElementById('cqmsResponseMsg');
+      msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
+      msgDiv.classList.remove('hidden');
+      
+      // Reset form and generate new order number for next user
+      setTimeout(() => {
+        document.getElementById('cqmsForm').reset();
+        const newOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('orderNumber').value = newOrder;
+        const now = new Date();
+        document.getElementById('dateTime').value = now.toLocaleString();
+      }, 3000);
     });
 
     // Feedback Form Submission
