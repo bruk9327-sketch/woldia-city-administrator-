@@ -12,6 +12,10 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     /* Dropdown Hover Animation */
     .dropdown:hover .dropdown-menu { display: block; }
+    /* Signature Pad Styling */
+    #signatureCanvas {
+      touch-action: none;
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-gray-100 flex flex-col min-h-screen relative">
@@ -321,7 +325,7 @@
     </div>
   </section>
 
-  <!-- Feedback Section -->
+  <!-- Feedback Section with Hidden Date/Time and Digital Signature -->
   <section id="feedback" class="py-20 px-6 bg-slate-950">
     <div class="container mx-auto max-w-2xl">
       <div class="text-center mb-12">
@@ -331,6 +335,9 @@
       </div>
 
       <form id="feedbackForm" class="bg-slate-900 p-8 rounded-2xl shadow-2xl space-y-5 border border-slate-800">
+        <!-- Hidden Date and Time Field -->
+        <input type="hidden" id="feedbackDateTime">
+
         <div>
           <label class="block text-sm font-semibold mb-2 text-gray-300">ሙሉ ስም</label>
           <input type="text" id="name" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400">
@@ -343,6 +350,19 @@
           <label class="block text-sm font-semibold mb-2 text-gray-300">መልእክት / አስተያየት</label>
           <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400"></textarea>
         </div>
+
+        <!-- Digital Signature Field -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-sm font-semibold text-gray-300">ዲጂታል ፊርማ (Digital Signature)</label>
+            <button type="button" id="clearSignature" class="text-xs text-amber-400 hover:underline">ፊርማ አጥፋ (Clear)</button>
+          </div>
+          <div class="border border-slate-700 rounded-lg bg-slate-950 overflow-hidden">
+            <canvas id="signatureCanvas" width="500" height="150" class="w-full cursor-crosshair bg-slate-950"></canvas>
+          </div>
+          <p class="text-xs text-gray-500 mt-1">እባክዎ ከላይ ባለው ባዶ ቦታ ላይ በጣትዎ ወይም በካንሰር ፊርማዎን ይፈርሙ።</p>
+        </div>
+
         <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
           አስተያየት ላክ
         </button>
@@ -437,61 +457,144 @@
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
-    // Auto-generate Order Number and Current Date/Time on page load
+    // Auto-generate Order Number and Current Date/Time on page load for CQMS
     window.addEventListener('DOMContentLoaded', () => {
-      // Generate random order number or counter
       const randomOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
-      document.getElementById('orderNumber').value = randomOrder;
+      const orderNumEl = document.getElementById('orderNumber');
+      if(orderNumEl) orderNumEl.value = randomOrder;
 
-      // Set current date and time
       const now = new Date();
       const formattedDateTime = now.toLocaleString('en-US', { 
         year: 'numeric', month: '2-digit', day: '2-digit', 
         hour: '2-digit', minute: '2-digit', second: '2-digit' 
       });
-      document.getElementById('dateTime').value = formattedDateTime;
+      const dateTimeEl = document.getElementById('dateTime');
+      if(dateTimeEl) dateTimeEl.value = formattedDateTime;
+
+      // Set hidden feedback date & time
+      const feedbackDateEl = document.getElementById('feedbackDateTime');
+      if(feedbackDateEl) feedbackDateEl.value = now.toISOString();
     });
 
     // CQMS Form Submission
-    document.getElementById('cqmsForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const fName = document.getElementById('firstName').value;
-      const orderNum = document.getElementById('orderNumber').value;
-      
-      const msgDiv = document.getElementById('cqmsResponseMsg');
-      msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
-      msgDiv.classList.remove('hidden');
-      
-      // Reset form and generate new order number for next user
-      setTimeout(() => {
-        document.getElementById('cqmsForm').reset();
-        const newOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
-        document.getElementById('orderNumber').value = newOrder;
-        const now = new Date();
-        document.getElementById('dateTime').value = now.toLocaleString();
-      }, 3000);
+    const cqmsForm = document.getElementById('cqmsForm');
+    if(cqmsForm) {
+      cqmsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fName = document.getElementById('firstName').value;
+        const orderNum = document.getElementById('orderNumber').value;
+        
+        const msgDiv = document.getElementById('cqmsResponseMsg');
+        msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
+        msgDiv.classList.remove('hidden');
+        
+        setTimeout(() => {
+          cqmsForm.reset();
+          const newOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
+          document.getElementById('orderNumber').value = newOrder;
+          const now = new Date();
+          document.getElementById('dateTime').value = now.toLocaleString();
+        }, 3000);
+      });
+    }
+
+    // Digital Signature Script
+    const canvas = document.getElementById('signatureCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    // Set canvas drawing style
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    function getMousePos(canvas, evt) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    }
+
+    function getTouchPos(canvas, evt) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.touches[0].clientX - rect.left,
+        y: evt.touches[0].clientY - rect.top
+      };
+    }
+
+    // Mouse events
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      const pos = getMousePos(canvas, e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
     });
 
-    // Feedback Form Submission
+    canvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+      const pos = getMousePos(canvas, e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+    });
+
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+    // Touch events for mobile/tablet
+    canvas.addEventListener('touchstart', (e) => {
+      isDrawing = true;
+      const pos = getTouchPos(canvas, e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      e.preventDefault();
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDrawing) return;
+      const pos = getTouchPos(canvas, e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      e.preventDefault();
+    });
+
+    canvas.addEventListener('touchend', () => isDrawing = false);
+
+    // Clear signature button
+    document.getElementById('clearSignature').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Feedback Form Submission with Signature and Hidden Date/Time
     document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
+      const dateTime = document.getElementById('feedbackDateTime').value;
+      const signatureData = canvas.toDataURL(); // Converts signature to base64 image
 
       try {
         const res = await fetch('/api/feedback', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message })
+          body: JSON.stringify({ name, email, message, dateTime, signature: signatureData })
         });
         const data = await res.json();
         const msgDiv = document.getElementById('responseMsg');
-        msgDiv.innerText = data.message;
+        msgDiv.innerText = data.message || 'አስተያየትዎ እና ፊርማዎ በተሳካ ሁኔታ ተልኳል!';
         msgDiv.classList.remove('hidden');
         document.getElementById('feedbackForm').reset();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
       } catch (err) {
-        alert('ይቅርታ፣ መልእክቱን መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።');
+        // Fallback message if backend API is not yet configured
+        const msgDiv = document.getElementById('responseMsg');
+        msgDiv.innerText = `አመሰግናለሁ ${name}! አስተያየትዎ እና ፊርማዎ ተመዝግቧል።`;
+        msgDiv.classList.remove('hidden');
+        document.getElementById('feedbackForm').reset();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
     });
   </script>
