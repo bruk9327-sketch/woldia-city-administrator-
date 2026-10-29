@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>የአስተዳደር ዳሽቦርድ - የወልድያ ከተማ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-gray-100 flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-slate-900 border-r border-slate-800 hidden md:flex flex-col justify-between p-6">
+    <div class="space-y-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-teal-950 border border-amber-400 flex items-center justify-center text-amber-400 font-bold">W</div>
+        <div>
+          <h1 class="text-sm font-bold text-white">Woldia Admin</h1>
+          <p class="text-[10px] text-emerald-400">Control Panel</p>
+        </div>
+      </div>
+      <nav class="space-y-2 text-sm font-semibold">
+        <a href="#" class="flex items-center gap-3 px-4 py-2.5 bg-amber-500 text-slate-950 rounded-xl font-bold"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+        <a href="#cqms-table" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-users-line"></i> CQMS Queues</a>
+        <a href="#feedback-table" class="flex items-center gap-3 px-4 py-2.5 text-gray-300 hover:bg-slate-800 hover:text-amber-400 rounded-xl transition"><i class="fa-solid fa-comments"></i> Feedbacks & Signatures</a>
+        <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 text-red-400 hover:bg-red-950/50 rounded-xl transition mt-10"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      </nav>
+    </div>
+    <div class="text-[11px] text-gray-500 text-center border-t border-slate-800 pt-4">
+      &copy; 2026 ወልድያ ከተማ አስተዳደር
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col min-w-0">
+    <!-- Top Header -->
+    <header class="bg-slate-900/80 backdrop-blur border-b border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-30">
+      <h2 class="text-lg font-bold text-white">System Overview & Monitoring</h2>
+      <div class="flex items-center gap-3">
+        <span class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full font-semibold">Online Admin</span>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="p-6 md:p-8 space-y-8 overflow-y-auto">
+      
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs text-gray-400 font-semibold">Total Requests</span>
+            <i class="fa-solid fa-file-invoice text-emerald-400 text-xl"></i>
+          </div>
+          <h3 class="text-3xl font-black text-white">1,248</h3>
+          <p class="text-[11px] text-emerald-400 mt-1">+12% ከትናንት በሀገር አቀፍ</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs text-gray-400 font-semibold">Active CQMS Queues</span>
+            <i class="fa-solid fa-users text-amber-400 text-xl"></i>
+          </div>
+          <h3 class="text-3xl font-black text-white">42</h3>
+          <p class="text-[11px] text-amber-400 mt-1">በአሁን ሰዓት በመጠበቅ ላይ</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs text-gray-400 font-semibold">Signed Feedbacks</span>
+            <i class="fa-solid fa-signature text-cyan-400 text-xl"></i>
+          </div>
+          <h3 class="text-3xl font-black text-white">310</h3>
+          <p class="text-[11px] text-cyan-400 mt-1">በዲጂታል ፊርማ የተረጋገጠ</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-xs text-gray-400 font-semibold">System Status</span>
+            <i class="fa-solid fa-server text-purple-400 text-xl"></i>
+          </div>
+          <h3 class="text-3xl font-black text-emerald-400">Stable</h3>
+          <p class="text-[11px] text-gray-400 mt-1">Render & Render DB OK</p>
+        </div>
+      </div>
+
+      <!-- CQMS Queue Management Table -->
+      <div id="cqms-table" class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h3 class="text-lg font-bold text-white">የደንበኞች ተራ አሰላለፍ (CQMS Records)</h3>
+            <p class="text-xs text-gray-400">በዜጎች የተመዘገቡ ንቁ የሰርቪስ ተራዎች</p>
+          </div>
+          <button class="bg-slate-800 border border-slate-700 text-xs text-white px-4 py-2 rounded-lg hover:bg-slate-700 transition">Export CSV</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 text-gray-400">
+                <th class="py-3 px-4">Order #</th>
+                <th class="py-3 px-4">FullName</th>
+                <th class="py-3 px-4">Phone</th>
+                <th class="py-3 px-4">Qebele</th>
+                <th class="py-3 px-4">Service</th>
+                <th class="py-3 px-4">Date & Time</th>
+                <th class="py-3 px-4 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-gray-300">
+              <tr>
+                <td class="py-3 px-4 font-bold text-amber-400">WLD-Q-1042</td>
+                <td class="py-3 px-4">አበበ ከበደ አሰፋ</td>
+                <td class="py-3 px-4">+251911234567</td>
+                <td class="py-3 px-4">ቀበሌ 01</td>
+                <td class="py-3 px-4">Citizen Portal</td>
+                <td class="py-3 px-4">10/29/2026, 04:30 PM</td>
+                <td class="py-3 px-4 text-center"><span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-bold">Active</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-amber-400">WLD-Q-1043</td>
+                <td class="py-3 px-4">መዓዛ ታደሰ ሞላ</td>
+                <td class="py-3 px-4">+251922345678</td>
+                <td class="py-3 px-4">ቀበሌ 03</td>
+                <td class="py-3 px-4">Payment & Receipt</td>
+                <td class="py-3 px-4">10/29/2026, 04:45 PM</td>
+                <td class="py-3 px-4 text-center"><span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-bold">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Feedback & Digital Signatures Table -->
+      <div id="feedback-table" class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h3 class="text-lg font-bold text-white">የአስተያየቶችና የዲጂታል ፊርማዎች መዝገብ (Feedbacks)</h3>
+            <p class="text-xs text-gray-400">ከዜጎች የተሰጡ አስተያየቶች ከቀን/ሰዓት እና ፊርማ ጋር</p>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="border-b border-slate-800 text-gray-400">
+                <th class="py-3 px-4">Full Name</th>
+                <th class="py-3 px-4">Email</th>
+                <th class="py-3 px-4">Message</th>
+                <th class="py-3 px-4">Date & Time</th>
+                <th class="py-3 px-4 text-center">Digital Signature</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-gray-300">
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">ዮሐንስ ደምሴ</td>
+                <td class="py-3 px-4">yohanes@gmail.com</td>
+                <td class="py-3 px-4">አገልግሎቱ በጣም ፈጣንና አጥጋቢ ነው። በርቱልን!</td>
+                <td class="py-3 px-4">2026-10-29T16:20:00Z</td>
+                <td class="py-3 px-4 text-center">
+                  <span class="bg-cyan-950 text-cyan-400 border border-cyan-800 px-2 py-1 rounded text-[10px]">Verified Signature</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
