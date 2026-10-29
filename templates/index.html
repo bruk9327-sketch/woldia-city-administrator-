@@ -63,7 +63,7 @@
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-bell text-amber-400 mr-2"></i>Tracking & Notification</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-triangle-exclamation text-cyan-400 mr-2"></i>Complaint Management</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-chart-line text-purple-400 mr-2"></i>Reports & Analytics</a>
-            <a href="#cqms-section" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 text-amber-300 font-bold"><i class="fa-solid fa-ticket mr-2"></i>Customer Queue (CQMS)</a>
+            <a href="#signup-section" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 text-amber-300 font-bold"><i class="fa-solid fa-user-plus mr-2"></i>Sign Up & CQMS</a>
           </div>
         </div>
 
@@ -75,7 +75,7 @@
         <!-- Sign In & Sign Up Buttons -->
         <div class="flex items-center space-x-2 ml-4 pl-4 border-l border-slate-800">
           <a href="/admin/login" class="bg-emerald-700 text-white hover:bg-emerald-600 px-3 py-1.5 rounded-lg text-xs font-bold transition shadow"><i class="fa-solid fa-right-to-bracket mr-1"></i> Sign In</a>
-          <a href="#cqms-section" class="bg-amber-500 text-slate-950 hover:bg-amber-400 px-3 py-1.5 rounded-lg text-xs font-extrabold transition shadow"><i class="fa-solid fa-user-plus mr-1"></i> Sign Up</a>
+          <a href="#signup-section" class="bg-amber-500 text-slate-950 hover:bg-amber-400 px-3 py-1.5 rounded-lg text-xs font-extrabold transition shadow"><i class="fa-solid fa-user-plus mr-1"></i> Sign Up</a>
         </div>
       </nav>
 
@@ -98,7 +98,7 @@
         <a href="#services" class="block text-xs hover:text-amber-400">Tracking & Notification</a>
         <a href="#services" class="block text-xs hover:text-amber-400">Complaint Management</a>
         <a href="#services" class="block text-xs hover:text-amber-400">Reports & Analytics</a>
-        <a href="#cqms-section" class="block text-xs text-amber-300 font-bold hover:text-amber-400">Customer Queue (CQMS)</a>
+        <a href="#signup-section" class="block text-xs text-amber-300 font-bold hover:text-amber-400">Sign Up & CQMS</a>
       </div>
       <a href="#announcements" class="block hover:text-amber-400">News & Announcements</a>
       <a href="#feedback" class="block hover:text-amber-400">Feedback</a>
@@ -108,7 +108,7 @@
       <!-- Mobile Auth Buttons -->
       <div class="pt-3 border-t border-slate-800 flex gap-3">
         <a href="/admin/login" class="flex-1 text-center bg-emerald-700 text-white py-2 rounded-lg text-xs font-bold">Sign In</a>
-        <a href="#cqms-section" class="flex-1 text-center bg-amber-500 text-slate-950 py-2 rounded-lg text-xs font-extrabold">Sign Up</a>
+        <a href="#signup-section" class="flex-1 text-center bg-amber-500 text-slate-950 py-2 rounded-lg text-xs font-extrabold">Sign Up</a>
       </div>
     </div>
   </header>
@@ -126,8 +126,8 @@
         Connecting people, resources, and public services through intelligent solutions for a more efficient and inclusive future.
       </p>
       <div class="pt-4 flex justify-center gap-4">
-        <a href="#services" class="bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-8 py-3.5 rounded-full shadow-xl hover:opacity-90 transition flex items-center gap-2">
-          Get Started &rarr;
+        <a href="#signup-section" class="bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold px-8 py-3.5 rounded-full shadow-xl hover:opacity-90 transition flex items-center gap-2">
+          Get Started / Sign Up &rarr;
         </a>
       </div>
     </div>
@@ -214,13 +214,13 @@
     </div>
   </section>
 
-  <!-- Customer Queue Management System (CQMS) / Sign Up Section -->
-  <section id="cqms-section" class="py-20 px-6 bg-slate-950">
+  <!-- Sign Up & Customer Queue Management System (CQMS) Section -->
+  <section id="signup-section" class="py-20 px-6 bg-slate-950">
     <div class="container mx-auto max-w-3xl">
       <div class="text-center mb-12">
-        <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">CQMS PORTAL (SIGN UP)</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Customer Queue Management System</h2>
-        <p class="text-gray-400 text-sm">ለተራ አሰላለፍ እና ፈጣን አገልግሎት ማግኛ የደንበኛ ምዝገባ ቅጽ</p>
+        <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">CITIZEN PORTAL / SIGN UP</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">መለያ መፍጠሪያ እና የወረፋ ምዝገባ ቅጽ (Sign Up & CQMS)</h2>
+        <p class="text-gray-400 text-sm">አገልግሎቶችን በኦንላይን ለመከታተል እና ፈጣን ተራ ለማግኘት ይመዝገቡ</p>
         <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
       </div>
 
@@ -237,6 +237,17 @@
           <div>
             <label class="block text-sm font-semibold mb-2 text-gray-300">Last Name (የአያት ስም)</label>
             <input type="text" id="lastName" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="የአያት ስም">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Email Address (ኢሜይል)</label>
+            <input type="email" id="signupEmail" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="user@gmail.com">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-gray-300">Password (የይለፍ ቃል)</label>
+            <input type="password" id="signupPassword" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400" placeholder="••••••••">
           </div>
         </div>
 
@@ -278,7 +289,7 @@
         </div>
 
         <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
-          Submit / Sign Up (ምዝገባ አጠናቅ)
+          Complete Sign Up & Get Queue (ምዝገባ አጠናቅ)
         </button>
       </form>
       <div id="cqmsResponseMsg" class="mt-4 text-center font-bold text-amber-400 hidden"></div>
@@ -486,7 +497,7 @@
         const orderNum = document.getElementById('orderNumber').value;
         
         const msgDiv = document.getElementById('cqmsResponseMsg');
-        msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ (Sign Up) ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
+        msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! መለያዎ ተፈጥሯል እንዲሁም የምዝገባ ጥያቄዎ ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
         msgDiv.classList.remove('hidden');
         
         setTimeout(() => {
