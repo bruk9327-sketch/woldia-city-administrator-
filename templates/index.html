@@ -12,10 +12,7 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     /* Dropdown Hover Animation */
     .dropdown:hover .dropdown-menu { display: block; }
-    /* Signature Pad Styling */
-    #signatureCanvas {
-      touch-action: none;
-    }
+    #signatureCanvas { touch-action: none; }
   </style>
 </head>
 <body class="bg-slate-900 text-gray-100 flex flex-col min-h-screen relative">
@@ -31,7 +28,7 @@
   <!-- Header & Navigation Bar -->
   <header class="bg-slate-950/90 backdrop-blur-md text-white shadow-md sticky top-0 z-50 border-b border-slate-800">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- Logo (አዲሱ የወልድያ ከተማ አስተዳደር ሎጎ) -->
+      <!-- Logo -->
       <div class="flex items-center space-x-3">
         <svg class="w-12 h-12 rounded-full border-2 border-amber-400 bg-teal-950 p-0.5 shadow-md" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="48" fill="#034b5e" stroke="#ffffff" stroke-width="2"/>
@@ -66,7 +63,6 @@
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-bell text-amber-400 mr-2"></i>Tracking & Notification</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-triangle-exclamation text-cyan-400 mr-2"></i>Complaint Management</a>
             <a href="#services" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 border-b border-slate-900"><i class="fa-solid fa-chart-line text-purple-400 mr-2"></i>Reports & Analytics</a>
-            <!-- CQMS Sub-menu Item -->
             <a href="#cqms-section" class="block px-4 py-2 text-xs hover:bg-slate-800 hover:text-amber-400 text-amber-300 font-bold"><i class="fa-solid fa-ticket mr-2"></i>Customer Queue (CQMS)</a>
           </div>
         </div>
@@ -75,6 +71,12 @@
         <a href="#feedback" class="hover:text-amber-400 transition py-2">Feedback</a>
         <a href="#about" class="hover:text-amber-400 transition py-2">About Us</a>
         <a href="#contact" class="hover:text-amber-400 transition py-2">Contact Us</a>
+
+        <!-- Sign In & Sign Up Buttons -->
+        <div class="flex items-center space-x-2 ml-4 pl-4 border-l border-slate-800">
+          <a href="/admin/login" class="bg-emerald-700 text-white hover:bg-emerald-600 px-3 py-1.5 rounded-lg text-xs font-bold transition shadow"><i class="fa-solid fa-right-to-bracket mr-1"></i> Sign In</a>
+          <a href="#cqms-section" class="bg-amber-500 text-slate-950 hover:bg-amber-400 px-3 py-1.5 rounded-lg text-xs font-extrabold transition shadow"><i class="fa-solid fa-user-plus mr-1"></i> Sign Up</a>
+        </div>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -102,6 +104,12 @@
       <a href="#feedback" class="block hover:text-amber-400">Feedback</a>
       <a href="#about" class="block hover:text-amber-400">About Us</a>
       <a href="#contact" class="block hover:text-amber-400">Contact Us</a>
+      
+      <!-- Mobile Auth Buttons -->
+      <div class="pt-3 border-t border-slate-800 flex gap-3">
+        <a href="/admin/login" class="flex-1 text-center bg-emerald-700 text-white py-2 rounded-lg text-xs font-bold">Sign In</a>
+        <a href="#cqms-section" class="flex-1 text-center bg-amber-500 text-slate-950 py-2 rounded-lg text-xs font-extrabold">Sign Up</a>
+      </div>
     </div>
   </header>
 
@@ -125,7 +133,7 @@
     </div>
   </section>
 
-  <!-- Google Map Section (Woldia Location Map) -->
+  <!-- Google Map Section -->
   <section class="py-10 px-6 bg-slate-950">
     <div class="container mx-auto max-w-6xl">
       <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 shadow-2xl">
@@ -206,11 +214,11 @@
     </div>
   </section>
 
-  <!-- Customer Queue Management System (CQMS) Registration Section -->
+  <!-- Customer Queue Management System (CQMS) / Sign Up Section -->
   <section id="cqms-section" class="py-20 px-6 bg-slate-950">
     <div class="container mx-auto max-w-3xl">
       <div class="text-center mb-12">
-        <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">CQMS PORTAL</span>
+        <span class="text-amber-400 font-bold tracking-wider uppercase text-xs">CQMS PORTAL (SIGN UP)</span>
         <h2 class="text-3xl font-extrabold text-white mt-1 mb-2">Customer Queue Management System</h2>
         <p class="text-gray-400 text-sm">ለተራ አሰላለፍ እና ፈጣን አገልግሎት ማግኛ የደንበኛ ምዝገባ ቅጽ</p>
         <div class="w-20 h-1 bg-amber-400 mx-auto mt-4 rounded-full"></div>
@@ -270,7 +278,7 @@
         </div>
 
         <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
-          Submit (ምዝገባ ላክ)
+          Submit / Sign Up (ምዝገባ አጠናቅ)
         </button>
       </form>
       <div id="cqmsResponseMsg" class="mt-4 text-center font-bold text-amber-400 hidden"></div>
@@ -325,7 +333,7 @@
     </div>
   </section>
 
-  <!-- Feedback Section with Hidden Date/Time and Digital Signature -->
+  <!-- Feedback Section with Signature -->
   <section id="feedback" class="py-20 px-6 bg-slate-950">
     <div class="container mx-auto max-w-2xl">
       <div class="text-center mb-12">
@@ -335,7 +343,6 @@
       </div>
 
       <form id="feedbackForm" class="bg-slate-900 p-8 rounded-2xl shadow-2xl space-y-5 border border-slate-800">
-        <!-- Hidden Date and Time Field -->
         <input type="hidden" id="feedbackDateTime">
 
         <div>
@@ -351,7 +358,6 @@
           <textarea id="message" rows="4" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-amber-400"></textarea>
         </div>
 
-        <!-- Digital Signature Field -->
         <div>
           <div class="flex justify-between items-center mb-2">
             <label class="block text-sm font-semibold text-gray-300">ዲጂታል ፊርማ (Digital Signature)</label>
@@ -360,7 +366,6 @@
           <div class="border border-slate-700 rounded-lg bg-slate-950 overflow-hidden">
             <canvas id="signatureCanvas" width="500" height="150" class="w-full cursor-crosshair bg-slate-950"></canvas>
           </div>
-          <p class="text-xs text-gray-500 mt-1">እባክዎ ከላይ ባለው ባዶ ቦታ ላይ በጣትዎ ወይም በካንሰር ፊርማዎን ይፈርሙ።</p>
         </div>
 
         <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3.5 rounded-lg hover:bg-amber-400 transition shadow-lg">
@@ -452,12 +457,10 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
     document.getElementById('menuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
-    // Auto-generate Order Number and Current Date/Time on page load for CQMS
     window.addEventListener('DOMContentLoaded', () => {
       const randomOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
       const orderNumEl = document.getElementById('orderNumber');
@@ -471,12 +474,10 @@
       const dateTimeEl = document.getElementById('dateTime');
       if(dateTimeEl) dateTimeEl.value = formattedDateTime;
 
-      // Set hidden feedback date & time
       const feedbackDateEl = document.getElementById('feedbackDateTime');
       if(feedbackDateEl) feedbackDateEl.value = now.toISOString();
     });
 
-    // CQMS Form Submission
     const cqmsForm = document.getElementById('cqmsForm');
     if(cqmsForm) {
       cqmsForm.addEventListener('submit', (e) => {
@@ -485,118 +486,63 @@
         const orderNum = document.getElementById('orderNumber').value;
         
         const msgDiv = document.getElementById('cqmsResponseMsg');
-        msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
+        msgDiv.innerText = `እንኳን ደስ አለዎት ${fName}! የምዝገባ ጥያቄዎ (Sign Up) ተቀባይነት አግኝቷል። የእርስዎ ተራ ቁጥር: ${orderNum}`;
         msgDiv.classList.remove('hidden');
         
         setTimeout(() => {
           cqmsForm.reset();
           const newOrder = 'WLD-Q-' + Math.floor(1000 + Math.random() * 9000);
           document.getElementById('orderNumber').value = newOrder;
-          const now = new Date();
-          document.getElementById('dateTime').value = now.toLocaleString();
         }, 3000);
       });
     }
 
-    // Digital Signature Script
     const canvas = document.getElementById('signatureCanvas');
-    const ctx = canvas.getContext('2d');
+    let ctx = null;
     let isDrawing = false;
 
-    // Set canvas drawing style
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 2;
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
+    if(canvas) {
+      ctx = canvas.getContext('2d');
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
 
-    function getMousePos(canvas, evt) {
-      const rect = canvas.getBoundingClientRect();
-      return {
-        x: evt.clientX - rect.left,
-        y: evt.clientY - rect.top
-      };
-    }
-
-    function getTouchPos(canvas, evt) {
-      const rect = canvas.getBoundingClientRect();
-      return {
-        x: evt.touches[0].clientX - rect.left,
-        y: evt.touches[0].clientY - rect.top
-      };
-    }
-
-    // Mouse events
-    canvas.addEventListener('mousedown', (e) => {
-      isDrawing = true;
-      const pos = getMousePos(canvas, e);
-      ctx.beginPath();
-      ctx.moveTo(pos.x, pos.y);
-    });
-
-    canvas.addEventListener('mousemove', (e) => {
-      if (!isDrawing) return;
-      const pos = getMousePos(canvas, e);
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-    });
-
-    canvas.addEventListener('mouseup', () => isDrawing = false);
-    canvas.addEventListener('mouseleave', () => isDrawing = false);
-
-    // Touch events for mobile/tablet
-    canvas.addEventListener('touchstart', (e) => {
-      isDrawing = true;
-      const pos = getTouchPos(canvas, e);
-      ctx.beginPath();
-      ctx.moveTo(pos.x, pos.y);
-      e.preventDefault();
-    });
-
-    canvas.addEventListener('touchmove', (e) => {
-      if (!isDrawing) return;
-      const pos = getTouchPos(canvas, e);
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-      e.preventDefault();
-    });
-
-    canvas.addEventListener('touchend', () => isDrawing = false);
-
-    // Clear signature button
-    document.getElementById('clearSignature').addEventListener('click', () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
-
-    // Feedback Form Submission with Signature and Hidden Date/Time
-    document.getElementById('feedbackForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      const dateTime = document.getElementById('feedbackDateTime').value;
-      const signatureData = canvas.toDataURL(); // Converts signature to base64 image
-
-      try {
-        const res = await fetch('/api/feedback', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message, dateTime, signature: signatureData })
-        });
-        const data = await res.json();
-        const msgDiv = document.getElementById('responseMsg');
-        msgDiv.innerText = data.message || 'አስተያየትዎ እና ፊርማዎ በተሳካ ሁኔታ ተልኳል!';
-        msgDiv.classList.remove('hidden');
-        document.getElementById('feedbackForm').reset();
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      } catch (err) {
-        // Fallback message if backend API is not yet configured
-        const msgDiv = document.getElementById('responseMsg');
-        msgDiv.innerText = `አመሰግናለሁ ${name}! አስተያየትዎ እና ፊርማዎ ተመዝግቧል።`;
-        msgDiv.classList.remove('hidden');
-        document.getElementById('feedbackForm').reset();
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      function getMousePos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
       }
-    });
+      function getTouchPos(canvas, evt) {
+        const rect = canvas.getBoundingClientRect();
+        return { x: evt.touches[0].clientX - rect.left, y: evt.touches[0].clientY - rect.top };
+      }
+
+      canvas.addEventListener('mousedown', (e) => { isDrawing = true; const pos = getMousePos(canvas, e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); });
+      canvas.addEventListener('mousemove', (e) => { if (!isDrawing) return; const pos = getMousePos(canvas, e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); });
+      canvas.addEventListener('mouseup', () => isDrawing = false);
+      canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+      canvas.addEventListener('touchstart', (e) => { isDrawing = true; const pos = getTouchPos(canvas, e); ctx.beginPath(); ctx.moveTo(pos.x, pos.y); e.preventDefault(); });
+      canvas.addEventListener('touchmove', (e) => { if (!isDrawing) return; const pos = getTouchPos(canvas, e); ctx.lineTo(pos.x, pos.y); ctx.stroke(); e.preventDefault(); });
+      canvas.addEventListener('touchend', () => isDrawing = false);
+
+      document.getElementById('clearSignature').addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    }
+
+    const feedbackForm = document.getElementById('feedbackForm');
+    if(feedbackForm) {
+      feedbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const msgDiv = document.getElementById('responseMsg');
+        msgDiv.innerText = `አመሰግናለሁ ${name}! አስተያየትዎ እና ፊርማዎ በተሳካ ሁኔታ ተልኳል።`;
+        msgDiv.classList.remove('hidden');
+        feedbackForm.reset();
+        if(canvas && ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    }
   </script>
 </body>
 </html>
