@@ -21,14 +21,14 @@
     </div>
 
     <!-- Login Form -->
-    <form id="adminLoginForm" class="space-y-4">
+    <form id="adminLoginForm" method="POST" action="/admin/login" class="space-y-4">
       <div>
         <label class="block text-xs font-semibold mb-1 text-gray-300">ኢሜይል አድራሻ (Email)</label>
-        <input type="email" id="adminEmail" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="admin@woldiacityadmin.gov.et">
+        <input type="email" id="adminEmail" name="email" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="admin@woldiacityadmin.gov.et">
       </div>
       <div>
         <label class="block text-xs font-semibold mb-1 text-gray-300">የይለፍ ቃል (Password)</label>
-        <input type="password" id="adminPassword" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="••••••••">
+        <input type="password" id="adminPassword" name="password" required class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="••••••••">
       </div>
       <button type="submit" class="w-full bg-amber-500 text-slate-950 font-extrabold py-3 rounded-lg hover:bg-amber-400 transition shadow-lg text-sm">
         ግባ (Login)
@@ -38,16 +38,14 @@
     <div id="loginError" class="text-center text-xs text-red-400 font-bold hidden"></div>
 
     <div class="text-center pt-2 border-t border-slate-800">
-      <a href="index.html" class="text-xs text-gray-400 hover:text-amber-400 transition">&larr; ወደ ዋናው ዌብሳይት ተመለስ</a>
+      <a href="/" class="text-xs text-gray-400 hover:text-amber-400 transition">&larr; ወደ ዋናው ዌብሳይት ተመለስ</a>
     </div>
   </div>
 
   <script>
-    document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = document.getElementById('adminEmail.value');
-      // Simple mock validation (ወደፊት ከባክኤንድ ጋር ይያያዛል)
-      window.location.href = 'admin.html';
+    // ከባክኤንድ የሚመጣውን የተሳሳተ መረጃ በጃቫስክሪፕት ለመያዝ (ከተፈለገ)
+    document.getElementById('adminLoginForm').addEventListener('submit', async (e) => {
+      // ፎርሙ በቀጥታ ወደ ሰርቨር እንዲሄድ ይደረጋል (Standard Form POST)
     });
   </script>
 </body>
